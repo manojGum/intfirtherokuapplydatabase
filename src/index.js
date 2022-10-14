@@ -5,7 +5,7 @@ const register=require("./controllers/reg.controller")
 const login = require("./controllers/log.controller")
 const userController= require("./controllers/user.controller")
 const refreshController=require("./controllers/refresh.controller")
-const geeting =require("./controllers/get.controller")
+// const geeting =require("./controllers/get.controller")
 const app= express();
 
 const PORT = process.env.PORT || 8080
@@ -14,7 +14,13 @@ app.use(cors())
 app.use(express.json());
 
 
-app.get("/",geeting)
+ 
+app.get('/', (req, res) => {
+    res
+      .status(200)
+      .send('Hello server is running')
+      .end();
+  });
 app.post("/register",register)
 app.post("/login",login)
 app.use("/userdetails", userController)
