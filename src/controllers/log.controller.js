@@ -9,7 +9,7 @@ const generateToken=(user)=>{
 }
 
 const genrateRefreshToken=(user)=>{
-    return  jwt.sign({user}, process.env.SECRET_KEY_REFRESH , { expiresIn: '120s' });
+    return  jwt.sign({user}, process.env.SECRET_KEY_REFRESH , { expiresIn: '1h' });
 }
 
 
